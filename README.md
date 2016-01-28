@@ -1,6 +1,8 @@
 # Errbit Docker image
 
-Dockerfile and repository for running [errbit] in a docker container.
+Dockerfile and repository for running [Errbit] in a docker container.
+
+Automated build available in [Docker Hub].
 
 The short version of how to get it running:
 ```
@@ -47,5 +49,6 @@ docker run --rm --link mongodb:mongodb jmarsik/errbit upgrade
 docker run -d --name errbit --link mongodb:mongodb -p 3000:3000 jmarsik/errbit
 ```
 
-[errbit]: https://github.com/errbit/errbit
+[Errbit]: https://github.com/errbit/errbit
+[Docker Hub]: https://hub.docker.com/r/jmarsik/errbit/
 [available variables]: https://github.com/errbit/errbit/blob/master/docs/configuration.md
