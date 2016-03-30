@@ -7,8 +7,8 @@ Automated build available in [Docker Hub].
 The short version of how to get it running:
 ```
 docker run -d --name mongodb mongo
-docker run --rm --link mongodb:mongodb jmarsik/errbit seed
-docker run -d --name errbit --link mongodb:mongodb -p 3000:3000 jmarsik/errbit
+docker run --rm --link mongodb:mongodb turley/errbit seed
+docker run -d --name errbit --link mongodb:mongodb -p 3000:3000 turley/errbit
 ```
 
 And then point your browser at ```http://localhost:3000```
@@ -28,14 +28,14 @@ port inside the container.
 In short you can do this to have errbit be on port 5000:
 
 ```
-docker run -d --name errbit --link mongodb:mongodb -p 5000:3000 jmarsik/errbit
+docker run -d --name errbit --link mongodb:mongodb -p 5000:3000 turley/errbit
 ```
 
 But should you need to change the port inside the container you can do so by
 setting the ```PORT``` environment variable like this:
 
 ```
-docker run -d --name errbit --link mongodb:mongodb -e PORT=5000 -p 5000:5000 jmarsik/errbit
+docker run -d --name errbit --link mongodb:mongodb -e PORT=5000 -p 5000:5000 turley/errbit
 ```
 
 ## Upgrade
@@ -44,11 +44,11 @@ To upgrade you need to replace the errbit container and upgrade the database.
 ```
 docker stop errbit
 docker rm errbit
-docker pull jmarsik/errbit
-docker run --rm --link mongodb:mongodb jmarsik/errbit upgrade
-docker run -d --name errbit --link mongodb:mongodb -p 3000:3000 jmarsik/errbit
+docker pull turley/errbit
+docker run --rm --link mongodb:mongodb turley/errbit upgrade
+docker run -d --name errbit --link mongodb:mongodb -p 3000:3000 turley/errbit
 ```
 
 [Errbit]: https://github.com/errbit/errbit
-[Docker Hub]: https://hub.docker.com/r/jmarsik/errbit/
+[Docker Hub]: https://hub.docker.com/r/turley/errbit/
 [available variables]: https://github.com/errbit/errbit/blob/master/docs/configuration.md
