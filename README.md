@@ -1,3 +1,5 @@
+Last updated: April 12, 2016
+
 # Errbit Docker image
 
 Dockerfile and repository for running [Errbit] in a docker container.
