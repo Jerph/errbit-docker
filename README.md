@@ -1,4 +1,4 @@
-Last updated: April 22, 2016
+Last updated: April 26, 2016
 
 # Errbit Docker image
 
