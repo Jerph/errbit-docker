@@ -6,6 +6,13 @@ export PATH=/opt/ruby/bin:$PATH
 if [ -z "$SECRET_TOKEN" -a ! -f "config/initializers/__secret_token.rb" ]; then
   echo "Errbit::Application.config.secret_token = '$(bundle exec rake secret)'" > config/initializers/__secret_token.rb
 fi
+
+# We already bundle install in the dockerfile
+# bundle install again to ensure UserGemfile is loaded before any action
+if [ -f "UserGemfile" ]; then
+  bundle install --path vendor/bundle
+fi
+
 if [ "$1" == "web" ]; then
   bundle exec puma -C ./config/puma.default.rb
 elif [ "$1" == "seed" ]; then

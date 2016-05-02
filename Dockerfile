@@ -27,7 +27,7 @@ USER errbit
 RUN git clone https://github.com/errbit/errbit.git /opt/errbit/app
 
 WORKDIR /opt/errbit/app
-RUN /opt/ruby/bin/bundle install --deployment
+RUN /opt/ruby/bin/bundle install --path vendor/bundle
 RUN PATH=/opt/ruby/bin:$PATH bundle exec rake assets:precompile
 
 ADD launch.bash /opt/launch.bash

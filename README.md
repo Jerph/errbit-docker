@@ -40,6 +40,16 @@ setting the ```PORT``` environment variable like this:
 docker run -d --name errbit --link mongodb:mongodb -e PORT=5000 -p 5000:5000 turley/errbit
 ```
 
+### Custom Gems
+
+You can add gems such as issue tracker plugins by creating a UserGemfile:
+
+```
+docker create --name errbit --link mongodb:mongodb -p 3000:3000 turley/errbit
+docker cp UserGemfile errbit:/opt/errbit/app/UserGemfile
+docker start errbit
+```
+
 ## Upgrade
 
 To upgrade you need to replace the errbit container and upgrade the database.
